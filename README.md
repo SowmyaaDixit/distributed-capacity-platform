@@ -1,29 +1,40 @@
-# Distributed Capacity Platform
+# Distributed Capacity Forecasting Platform
 
-A real-time distributed system that simulates how modern platforms (e.g., Airbnb, NVIDIA) handle demand spikes by ingesting streaming data, detecting anomalies, forecasting capacity, and enabling intelligent scaling decisions.
+📖 Case Study 
 
----
+Problem:
+Distributed systems face unpredictable traffic spikes and require accurate capacity planning to prevent outages, optimize resource use, and reduce latency.
 
-## 🚀 Problem Statement
+Approach:
 
-Modern systems face unpredictable demand spikes (traffic surges, GPU workloads, bookings).
-This project simulates a production-grade pipeline that:
+Data Ingestion: Real-time streaming events processed with validation and cleaning pipelines.
+Forecasting Model (VAR): Selected for interpretability, multi-variate forecasting, and deterministic outputs.
+LLM Reasoning: Used to generate structured insights, correlate metrics, and provide recommendations.
+Agentic Workflow: Orchestrates forecasting, analysis, and safety checks, ensuring automated reasoning is reliable.
+Guardrails: Validation layers prevent spurious forecasts and enforce threshold checks.
 
-* Processes real-time events
-* Detects anomalies in system load
-* Forecasts future demand
-* Enables capacity planning decisions
+Decision Tradeoffs:
+
+VAR was chosen over LSTM for stability and interpretability.
+LLMs are used only for reasoning, not for predictions, avoiding black-box behavior.
+Microservice architecture ensures modularity and scalability.
+
+Iterative Improvements:
+
+Preprocessing pipelines include stationarity checks and missing data handling.
+Logs and metrics enable debugging and model validation.
+Future enhancements: automated model selection, dashboards, and ensemble forecasting.
+
+Outcome:
+
+Modular, documented platform showing intentional design choices, safe LLM integration, and reproducible forecasting results.
+Portfolio-ready showcase highlighting engineering rigor and practical reasoning, not just tool usage.
 
 ---
 
 ## 🏗️ Architecture
 
-```
-Producer → Kafka → Stream Processor → 
-    ├── Forecasting Service
-    ├── Anomaly Detection Service
-    └── API Service → Dashboard
-```
+<img width="673" height="1837" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/7bb3ac58-3cee-4093-a604-c6d521dcf43c" />
 
 ---
 
