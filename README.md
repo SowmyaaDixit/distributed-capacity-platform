@@ -1,131 +1,52 @@
-# Distributed Capacity Forecasting Platform
+# Distributed Capacity Platform
 
-📖 Case Study 
+## Overview
+The Distributed Capacity Platform provides a scalable solution for managing and allocating resources across distributed systems effectively.
 
-Problem:
-Distributed systems face unpredictable traffic spikes and require accurate capacity planning to prevent outages, optimize resource use, and reduce latency.
+## Prerequisites
+To begin using the Distributed Capacity Platform, ensure you have the following dependencies installed:
+- [Node.js](https://nodejs.org) (version 14 or above)
+- [npm](https://www.npmjs.com) (Node package manager)
 
-Approach:
+## Installation
+Follow these steps to install the platform:
 
-Data Ingestion: Real-time streaming events processed with validation and cleaning pipelines.
-Forecasting Model (VAR): Selected for interpretability, multi-variate forecasting, and deterministic outputs.
-LLM Reasoning: Used to generate structured insights, correlate metrics, and provide recommendations.
-Agentic Workflow: Orchestrates forecasting, analysis, and safety checks, ensuring automated reasoning is reliable.
-Guardrails: Validation layers prevent spurious forecasts and enforce threshold checks.
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/SowmyaaDixit/distributed-capacity-platform.git
+    cd distributed-capacity-platform
+    ```
+2. Install the required dependencies:
+    ```bash
+    npm install
+    ```
 
-Decision Tradeoffs:
+## Features
+- **Scalability**: Easily scale resources based on demand.
+- **Efficiency**: Optimize resource utilization across distributed systems.
 
-VAR was chosen over LSTM for stability and interpretability.
-LLMs are used only for reasoning, not for predictions, avoiding black-box behavior.
-Microservice architecture ensures modularity and scalability.
-
-Iterative Improvements:
-
-Preprocessing pipelines include stationarity checks and missing data handling.
-Logs and metrics enable debugging and model validation.
-Future enhancements: automated model selection, dashboards, and ensemble forecasting.
-
-Outcome:
-
-Modular, documented platform showing intentional design choices, safe LLM integration, and reproducible forecasting results.
-Portfolio-ready showcase highlighting engineering rigor and practical reasoning, not just tool usage.
-
----
-
-## 🏗️ Architecture
-
-<img width="673" height="1837" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/7bb3ac58-3cee-4093-a604-c6d521dcf43c" />
-
----
-
-## ⚙️ Tech Stack
-
-* Python (microservices)
-* Kafka (event streaming)
-* Docker (containerization)
-* REST APIs (service communication)
-
----
-
-## 🔥 Key Features
-
-### 1. Real-time Streaming Pipeline
-
-* Event-driven architecture using Kafka
-* Handles continuous data ingestion
-
-### 2. Anomaly Detection
-
-* Identifies unusual spikes in load
-* Helps detect failures or abnormal usage patterns
-
-### 3. Demand Forecasting
-
-* Predicts future capacity requirements
-* Enables proactive scaling decisions
-
-### 4. Fault Tolerance (Simulated)
-
-* Retry mechanisms
-* Idempotent processing
-* Graceful failure handling
-
----
-
-## 📊 System Metrics (Planned / Extendable)
-
-* Throughput: events/sec
-* Latency: end-to-end processing time
-* Error rate
-* Queue lag
-
----
-
-## ⚠️ Failure Scenarios Considered
-
-* Producer crash → recovery via message replay
-* Consumer lag → backpressure handling
-* Service failure → retry with exponential backoff
-
----
-
-## 🧠 Design Decisions
-
-* Event-driven architecture for scalability
-* Loose coupling between services
-* Eventual consistency for performance
-* Partitioned streams for parallel processing
-
----
-
-## 🚀 Getting Started
-
+## Usage
+To start the server, run:
 ```bash
-docker-compose up --build
+npm start
 ```
 
----
+## Contributing
+We welcome contributions from the community. Please follow these guidelines:
+1. Fork the repository.
+2. Create your feature branch:
+   ```bash
+   git checkout -b feature/your-feature
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m 'Add some feature'
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature/your-feature
+   ```
+5. Open a Pull Request.
 
-## 📌 Future Improvements
-
-* Add Prometheus + Grafana for observability
-* Implement auto-scaling simulation logic
-* Improve forecasting model (ML-based)
-* Deploy on Kubernetes
-
----
-
-## 💡 Why This Project
-
-This project demonstrates:
-
-* Distributed systems design
-* Stream processing
-* Scalability tradeoffs
-* Real-world system thinking
-
----
-
-## 👤 Author
-
-Sowmyaa Dixit
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
