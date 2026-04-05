@@ -49,11 +49,11 @@ Distributed systems face unpredictable traffic spikes and require accurate capac
 
 ```mermaid
 flowchart TD
-    A[Event Streams (Kafka/RabbitMQ)] --> B[Preprocessing & Validation (backpressure, data cleaning)]
-    B --> C[VAR Forecasting (lag selection, stationarity checks)]
-    C --> D[LLM Interpreter (insights, correlations, recommendations)]
-    D --> E[Guardrails & Safety (threshold checks, validation)]
-    E --> F[API / Dashboard (visualization, metrics, logs)]
+    A["Event Streams (Kafka/RabbitMQ)"] --> B["Preprocessing & Validation (backpressure, data cleaning)"]
+    B --> C["VAR Forecasting (lag selection, stationarity checks)"]
+    C --> D["LLM Interpreter (insights, correlations, recommendations)"]
+    D --> E["Guardrails & Safety (threshold checks, validation)"]
+    E --> F["API / Dashboard (visualization, metrics, logs)"]
 
     subgraph Forecasting_Layer
         C
@@ -65,8 +65,6 @@ flowchart TD
         E
     end
 ```
-
-*Fixed the `\n` issue by replacing newlines with parentheses content—Mermaid now renders correctly.*
 
 ---
 
