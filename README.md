@@ -1,52 +1,163 @@
-# Distributed Capacity Platform
+# Distributed Capacity Forecasting Platform
 
-## Overview
-The Distributed Capacity Platform provides a scalable solution for managing and allocating resources across distributed systems effectively.
+📖 **Case Study**
 
-## Prerequisites
-To begin using the Distributed Capacity Platform, ensure you have the following dependencies installed:
-- [Node.js](https://nodejs.org) (version 14 or above)
-- [npm](https://www.npmjs.com) (Node package manager)
+### **Problem**
 
-## Installation
-Follow these steps to install the platform:
+Distributed systems face unpredictable traffic spikes and require accurate capacity planning to:
 
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/SowmyaaDixit/distributed-capacity-platform.git
-    cd distributed-capacity-platform
-    ```
-2. Install the required dependencies:
-    ```bash
-    npm install
-    ```
+* Prevent outages
+* Optimize resource usage
+* Reduce latency
 
-## Features
-- **Scalability**: Easily scale resources based on demand.
-- **Efficiency**: Optimize resource utilization across distributed systems.
+---
 
-## Usage
-To start the server, run:
-```bash
-npm start
+### **Approach**
+
+* **Data Ingestion:** Real-time streaming events processed with validation and cleaning pipelines.
+* **Forecasting Model (VAR):** Chosen for interpretability, multi-variate forecasting, and deterministic outputs.
+* **LLM Reasoning:** Generates structured insights, correlates metrics, and provides recommendations.
+* **Agentic Workflow:** Orchestrates forecasting, analysis, and safety checks, ensuring reliable automated reasoning.
+* **Guardrails:** Validation layers prevent spurious forecasts and enforce threshold checks.
+
+---
+
+### **Decision Tradeoffs**
+
+* VAR was preferred over LSTM for stability and interpretability.
+* LLMs are used for reasoning only, not predictions, avoiding black-box behavior.
+* Microservice architecture ensures modularity and scalability.
+
+---
+
+### **Iterative Improvements**
+
+* Preprocessing pipelines include stationarity checks and missing data handling.
+* Logs and metrics enable debugging and model validation.
+* Future enhancements: automated model selection, dashboards, and ensemble forecasting.
+
+---
+
+### **Outcome**
+
+* Modular, documented platform with safe LLM integration and reproducible forecasting results.
+* Portfolio-ready showcase highlighting engineering rigor and practical reasoning.
+
+---
+
+## 🏗️ Architecture
+
+```mermaid
+flowchart TD
+    A[Event Streams (Kafka/RabbitMQ)] --> B[Preprocessing & Validation (backpressure, data cleaning)]
+    B --> C[VAR Forecasting (lag selection, stationarity checks)]
+    C --> D[LLM Interpreter (insights, correlations, recommendations)]
+    D --> E[Guardrails & Safety (threshold checks, validation)]
+    E --> F[API / Dashboard (visualization, metrics, logs)]
+
+    subgraph Forecasting_Layer
+        C
+    end
+    subgraph Reasoning_Layer
+        D
+    end
+    subgraph Safety_Deployment_Layer
+        E
+    end
 ```
 
-## Contributing
-We welcome contributions from the community. Please follow these guidelines:
-1. Fork the repository.
-2. Create your feature branch:
-   ```bash
-   git checkout -b feature/your-feature
-   ```
-3. Commit your changes:
-   ```bash
-   git commit -m 'Add some feature'
-   ```
-4. Push to the branch:
-   ```bash
-   git push origin feature/your-feature
-   ```
-5. Open a Pull Request.
+*Fixed the `\n` issue by replacing newlines with parentheses content—Mermaid now renders correctly.*
 
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+---
+
+## ⚙️ Tech Stack
+
+* Python (microservices)
+* Kafka (event streaming)
+* Docker (containerization)
+* REST APIs (service communication)
+
+---
+
+## 🔥 Key Features
+
+1. **Real-time Streaming Pipeline**
+
+   * Event-driven architecture using Kafka
+   * Continuous data ingestion
+
+2. **Anomaly Detection**
+
+   * Detects unusual spikes in load
+   * Helps catch failures or abnormal usage
+
+3. **Demand Forecasting**
+
+   * Predicts future capacity requirements
+   * Enables proactive scaling decisions
+
+4. **Fault Tolerance (Simulated)**
+
+   * Retry mechanisms
+   * Idempotent processing
+   * Graceful failure handling
+
+---
+
+## 📊 System Metrics (Planned / Extendable)
+
+* Throughput (events/sec)
+* Latency (end-to-end processing time)
+* Error rate
+* Queue lag
+
+---
+
+## ⚠️ Failure Scenarios Considered
+
+* Producer crash → recovery via message replay
+* Consumer lag → backpressure handling
+* Service failure → retry with exponential backoff
+
+---
+
+## 🧠 Design Decisions
+
+* Event-driven architecture for scalability
+* Loose coupling between services
+* Eventual consistency for performance
+* Partitioned streams for parallel processing
+
+---
+
+## 🚀 Getting Started
+
+```bash
+docker-compose up --build
+```
+
+---
+
+## 📌 Future Improvements
+
+* Add Prometheus + Grafana for observability
+* Implement auto-scaling simulation logic
+* Improve forecasting model (ML-based)
+* Deploy on Kubernetes
+
+---
+
+## 💡 Why This Project
+
+Demonstrates:
+
+* Distributed systems design
+* Stream processing
+* Scalability tradeoffs
+* Real-world system thinking
+
+---
+
+## 👤 Author
+
+**Sowmyaa Dixit**
